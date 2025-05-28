@@ -7,7 +7,7 @@ const searchHandler = async (req, res) => {
     return res.status(400).send({ error: "Search Term is requird" });
   }
   try {
-    const PodcastFetch = await axios.get("https://itunes.apple.com/search", {
+    const podcastFetch = await axios.get("https://itunes.apple.com/search", {
       params: {
         term: term,
         media: "podcast",
@@ -27,7 +27,7 @@ const searchHandler = async (req, res) => {
       timeout: 8000,
     });
     const [podcastsRes, episodesRes] = await Promise.all([
-      PodcastFetch,
+      podcastFetch,
       episodesFetch,
     ]);
     const podcasts = podcastsRes.data.results;

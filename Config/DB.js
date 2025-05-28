@@ -9,7 +9,7 @@ if (!Access_key || !Secret_access_key || !Region || !table_name) {
     "Missing required AWS configuration. Please check your .env file"
   );
 }
-const dbClinet = new DynamoDBClient({
+const dbClient = new DynamoDBClient({
   region: Region,
   credentials: {
     accessKeyId: Access_key,
@@ -17,6 +17,6 @@ const dbClinet = new DynamoDBClient({
   },
 });
 
-const dbDocClinet = DynamoDBDocument.from(dbClinet);
+const dbDocClient = DynamoDBDocument.from(dbClient);
 
-export { dbDocClinet, table_name as tableName };
+export { dbDocClient, table_name as tableName };

@@ -1,4 +1,4 @@
-import { dbDocClinet, tableName } from "../Config/DB.js";
+import { dbDocClient, tableName } from "../Config/DB.js";
 
 async function storeInDataBase(items) {
   try {
@@ -17,7 +17,7 @@ async function storeInDataBase(items) {
       },
     };
 
-    const result = await dbDocClinet.batchWrite(batchWriteParams);
+    const result = await dbDocClient.batchWrite(batchWriteParams);
 
     console.log("Items stored successfully");
     return result;
